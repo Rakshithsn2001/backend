@@ -9,15 +9,6 @@ from.database import engine
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
-origins=["https://localost//3000"]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials = True,
-    allow_methods=["*"],
-    allow_headders=["*"]
-)
-
 @app.get("/",)
 def root():
     return {"message": "Hello"}
